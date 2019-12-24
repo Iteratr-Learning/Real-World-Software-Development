@@ -15,25 +15,22 @@ public class BankStatementProcessorTest {
     @Test
     public void shouldFilterTransactionsInFebruary() {
 
-        BankTransaction februarySalary
+        final BankTransaction februarySalary
                 = new BankTransaction(LocalDate.of(2019, Month.FEBRUARY, 14), 2_000, "Salary");
 
-        BankTransaction marchRoyalties
+        final BankTransaction marchRoyalties
                 = new BankTransaction(LocalDate.of(2019, Month.MARCH, 20), 500, "Royalties");
 
-        List<BankTransaction> bankTransactions
+        final List<BankTransaction> bankTransactions
                 = List.of(februarySalary,
                           marchRoyalties);
 
-        BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);
+        final BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);
         final List<BankTransaction> transactions
                 = bankStatementProcessor.findTransactions(new BankTransactionIsInFebruaryAndExpensive());
 
         assertThat(transactions, contains(februarySalary));
         assertThat(transactions, hasSize(1));
-
-
-
     }
 
 

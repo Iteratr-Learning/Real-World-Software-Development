@@ -3,7 +3,7 @@ package com.iteratrlearning.shu_book.chapter_03;
 
 public class MainApplication {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(final String[] args) throws Exception {
 
         final BankStatementAnalyzer bankStatementAnalyzer
                 = new BankStatementAnalyzer();

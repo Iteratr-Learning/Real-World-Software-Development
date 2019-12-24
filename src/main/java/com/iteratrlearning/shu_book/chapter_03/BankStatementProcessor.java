@@ -15,7 +15,7 @@ public class BankStatementProcessor {
 
     public SummaryStatistics summarizeTransactions() {
 
-        DoubleSummaryStatistics doubleSummaryStatistics = bankTransactions.stream()
+        final DoubleSummaryStatistics doubleSummaryStatistics = bankTransactions.stream()
                 .mapToDouble(BankTransaction::getAmount)
                 .summaryStatistics();
 

@@ -24,7 +24,7 @@ public class BankStatementAnalyzer {
 
         final BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);
 
-        SummaryStatistics summaryStatistics = bankStatementProcessor.summarizeTransactions();
+        final SummaryStatistics summaryStatistics = bankStatementProcessor.summarizeTransactions();
 
         System.out.println(exporter.export(summaryStatistics));
 
