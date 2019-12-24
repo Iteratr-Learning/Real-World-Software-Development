@@ -14,7 +14,7 @@ import static com.iteratrlearning.shu_book.chapter_06.TestData.twootAt;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-public class TwootrTest
+public class  TwootrTest
 {
 
     private static final Position POSITION_1 = new Position(0);
