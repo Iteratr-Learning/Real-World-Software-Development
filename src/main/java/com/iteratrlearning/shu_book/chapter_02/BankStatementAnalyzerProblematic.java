@@ -11,28 +11,28 @@ import java.util.List;
 
 public class BankStatementAnalyzerProblematic {
 
-    private static final String RESOURCES = "src/test/resources/";
-    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyy");
+    private static final String RESOURCES = "src/main/resources/";
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-    public static void main(String[] args) throws IOException {
-        Path path = Paths.get(RESOURCES + "bank-data-simple.csv");
-        List<String> lines = Files.readAllLines(path);
+    public static void main(final String[] args) throws IOException {
+        final Path path = Paths.get(RESOURCES + "bank-data-simple.csv");
+        final List<String> lines = Files.readAllLines(path);
         double total = 0;
-        for (String line : lines) {
-            String[] columns = line.split(",");
-            double amount = Double.parseDouble(columns[1]);
+        for (final String line : lines) {
+            final String[] columns = line.split(",");
+            final double amount = Double.parseDouble(columns[1]);
             total += amount;
         }
 
         System.out.println("The total for all transactions is " + total);
 
         total = 0;
-        for (String line : lines) {
+        for (final String line : lines) {
 
-            String[] columns = line.split(",");
-            LocalDate date = LocalDate.parse(columns[0], DATE_FORMATTER);
+            final String[] columns = line.split(",");
+            final LocalDate date = LocalDate.parse(columns[0], DATE_FORMATTER);
             if (date.getMonth() == Month.JANUARY) {
-                double amount = Double.parseDouble(columns[1]);
+                final double amount = Double.parseDouble(columns[1]);
                 total += amount;
             }
 
@@ -40,6 +40,5 @@ public class BankStatementAnalyzerProblematic {
 
         System.out.println("The total for all transactions in January is " + total);
 
-        // end::analyzerextractmonth[]
     }
 }

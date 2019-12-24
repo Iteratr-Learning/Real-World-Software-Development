@@ -4,10 +4,10 @@ public class MainApplication {
 
     public static void main(String[] args) throws Exception {
 
-        BankStatementAnalyzer bankStatementAnalyzer
+        final BankStatementAnalyzer bankStatementAnalyzer
                 = new BankStatementAnalyzer();
 
-        BankStatementParser bankStatementParser
+        final BankStatementParser bankStatementParser
                 = new BankStatementCSVParser();
 
         bankStatementAnalyzer.analyze("bank-data-simple.csv", bankStatementParser);

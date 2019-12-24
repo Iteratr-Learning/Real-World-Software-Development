@@ -2,16 +2,13 @@ package com.iteratrlearning.shu_book.chapter_05;
 
 public class Main {
 
-    public static void main(String...args) {
+    public static void main(final String...args) {
 
         var env = new Facts();
         env.setFact("name", "Bob");
         env.setFact("jobTitle", "CEO");
 
-        var businessRuleEngine = new BusinessRuleEngine(env);
-
-        Rule rule = RuleBuilder.when(facts -> "Richard".equals(facts.getFact("name")))
-                .then(facts -> System.out.println("What's up Richard"));
+        final var businessRuleEngine = new BusinessRuleEngine(env);
 
         final Rule ruleSendEmailToSalesWhenCEO =
                 RuleBuilder

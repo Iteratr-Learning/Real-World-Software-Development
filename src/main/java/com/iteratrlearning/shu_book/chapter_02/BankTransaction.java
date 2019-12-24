@@ -1,14 +1,15 @@
 package com.iteratrlearning.shu_book.chapter_02;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
-public class BankStatement {
+public class BankTransaction {
     private final LocalDate date;
     private final double amount;
     private final String description;
 
 
-    public BankStatement(LocalDate date, double amount, String description) {
+    public BankTransaction(final LocalDate date, final double amount, final String description) {
         this.date = date;
         this.amount = amount;
         this.description = description;
@@ -28,7 +29,7 @@ public class BankStatement {
 
     @Override
     public String toString() {
-        return "BankStatement{" +
+        return "BankTransaction{" +
                 "date=" + date +
                 ", amount=" + amount +
                 ", description='" + description + '\'' +
@@ -39,22 +40,16 @@ public class BankStatement {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
-        BankStatement that = (BankStatement) o;
-
-        if (Double.compare(that.getAmount(), getAmount()) != 0) return false;
-        if (!getDate().equals(that.getDate())) return false;
-        return getDescription().equals(that.getDescription());
+        BankTransaction that = (BankTransaction) o;
+        return Double.compare(that.amount, amount) == 0 &&
+                date.equals(that.date) &&
+                description.equals(that.description);
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = getDate().hashCode();
-        temp = Double.doubleToLongBits(getAmount());
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + getDescription().hashCode();
-        return result;
+        return Objects.hash(date, amount, description);
     }
+
+
 }

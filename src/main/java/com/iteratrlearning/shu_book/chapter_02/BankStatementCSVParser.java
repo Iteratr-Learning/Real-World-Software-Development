@@ -8,23 +8,18 @@ import static java.util.stream.Collectors.toList;
 
 public class BankStatementCSVParser implements BankStatementParser {
 
-    private static final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("dd-MM-yyy");
+    private static final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-    public BankStatement parseFrom(String line) {
-        String[] columns = line.split(",");
+    public BankTransaction parseFrom(final String line) {
+        final String[] columns = line.split(",");
 
-        LocalDate date = LocalDate.parse(columns[0], DATE_PATTERN);
-        double amount = Double.parseDouble(columns[1]);
+        final LocalDate date = LocalDate.parse(columns[0], DATE_PATTERN);
+        final double amount = Double.parseDouble(columns[1]);
 
-        return new BankStatement(date, amount, columns[2]);
+        return new BankTransaction(date, amount, columns[2]);
     }
 
-    public List<BankStatement> parseLinesFrom(List<String> lines) {
+    public List<BankTransaction> parseLinesFrom(final List<String> lines) {
         return lines.stream().map(this::parseFrom).collect(toList());
     }
-
-
-    // TODO: interface extractAmount(), extractDate(), extractDescription(), parseFromLine()?
-    // CSV BankStatement
-
 }

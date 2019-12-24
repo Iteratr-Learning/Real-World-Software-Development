@@ -4,22 +4,22 @@ import java.time.LocalDate;
 
 public class BankStatementDAO {
 
-    public BankStatement create(LocalDate date, double amount, String description) {
+    public BankTransaction create(final LocalDate date, final double amount, final String description) {
         // ...
         throw new UnsupportedOperationException();
     }
 
-    public BankStatement read(long id) {
+    public BankTransaction read(final long id) {
         // ...
         throw new UnsupportedOperationException();
     }
 
-    public BankStatement update(long id) {
+    public BankTransaction update(final long id) {
         // ...
         throw new UnsupportedOperationException();
     }
 
-    public void delete(BankStatement bankStatement) {
+    public void delete(final BankTransaction bankTransaction) {
         // ...
         throw new UnsupportedOperationException();
     }
