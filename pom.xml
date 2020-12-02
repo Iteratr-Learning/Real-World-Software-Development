@@ -24,7 +24,7 @@
 
     <properties>
         <jackson.version>2.10.1</jackson.version>
-        <jetty.version>9.4.24.v20191120</jetty.version>
+        <jetty.version>9.4.35.v20201120</jetty.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
